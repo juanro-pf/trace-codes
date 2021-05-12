@@ -25,3 +25,5 @@ TC${**responseStatusCode**}${**targetResponseCode**}${**responseMessageLength**}
 **customResponseCode**: Consistent code which is a combination of the response body message, if there is no response message available, this field will be empty.
 
 Then, you can have a list, bot, interface, or some way for the user to get the instructions on how to solve the issue based on the trace code.
+
+Note that if the **targetResponseCode** is different to NA, that probably means that the response is coming directly from the target, or at least that the request reached the target. 
