@@ -14,7 +14,7 @@ After uploading the trace, you will get a visual representation of the trace, ve
 
 The **trace code** has the following format:
 
-TC${**responseStatusCode**}${**targetResponseCode**}${**responseMessageLength**}-{**response10DigitCode**}
+TC${**responseStatusCode**}${**targetResponseCode**}${**responseMessageLength**}-{**customResponseCode**}
 
 **responseStatusCode**: Response status code coming from the proxy.
 
@@ -22,6 +22,6 @@ TC${**responseStatusCode**}${**targetResponseCode**}${**responseMessageLength**}
 
 **responseMessageLength**: Response body length, NA if no response body.
 
-**response10DigitCode**: Consistent code which is a 10-digit combination of the response body message, if there is no response message available, this field will be empty.
+**customResponseCode**: Consistent code which is a combination of the response body message, if there is no response message available, this field will be empty.
 
 Then, you can have a list, bot, interface, or some way for the user to get the instructions on how to solve the issue based on the trace code.
