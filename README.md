@@ -17,8 +17,11 @@ The **trace code** has the following format:
 TC${**responseStatusCode**}${**targetResponseCode**}${**responseMessageLength**}-{**response10DigitCode**}
 
 **responseStatusCode**: Response status code coming from the proxy.
+
 **targetResponseCode**: Response status code coming from the target, NA if no response from the target.
+
 **responseMessageLength**: Response body length, NA if no response body.
+
 **response10DigitCode**: Consistent code which is a 10-digit combination of the response body message, if there is no response message available, this field will be empty.
 
 Then, you can have a list, bot, interface, or some way for the user to get the instructions on how to solve the issue based on the trace code.
