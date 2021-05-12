@@ -24,7 +24,15 @@ export const App = () => {
   }, [file]);
 
   const onFileChange = event => {
-    setFile(event.target.files[0]);
+    try {
+      if(event.target.files[0].type === 'text/xml'){
+        setFile(event.target.files[0]);      
+      } else {
+        alert('Not an xml file');
+      }
+    } catch (error) {
+      alert('Not an xml file');
+    }
   };
 
   const showTraceInfo = () => {
@@ -90,7 +98,7 @@ export const App = () => {
   return (
     <div className= 'app'>
       <label className='app__input' style={ xmlFile === 'pending' ? { display: 'none' } : {} }>
-        <input type="file" onChange={onFileChange} />
+      <input type="file" onChange={onFileChange} accept='.xml'/>
         <i className='fa fa-file' aria-hidden="true"></i>
         {
           xmlFile ? ' Load new trace' : ' Load trace'
