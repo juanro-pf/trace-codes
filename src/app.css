@@ -33,12 +33,41 @@ body, html {
   display: none;
 }
 
+.app__first-time-info {
+  /* overflow-wrap: break-word;
+  overflow: hidden; */
+  background-color: rgb(209, 202, 231);
+  line-height: 1.6;
+  margin: auto;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  text-align: left;
+  width: 60%;
+}
+
+.app__first-time-info li {
+  font-size: 17px;
+  /* margin-left: 10px; */
+  margin-right: 10px;
+  /* text-align: left; */
+}
+
+.app__first-time-info h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-right: 10px;
+  /* margin-top: -10px; */
+  padding-top: 10px;
+}
+
 /* TraceItem */
 
 .trace-item {
   background-color: rgb(189, 178, 221);
   border: 2px solid black;
   border-radius: 5px;
+  cursor: pointer;
   display: flex;
   justify-content: space-evenly;
   margin: auto;
@@ -101,4 +130,27 @@ body, html {
 
 .trace-item__trace-code p {
   font-weight: bold;
+}
+
+.trace-item__troubleshoot-info {
+  overflow-wrap: break-word;
+  overflow: hidden;
+  background-color: rgb(209, 202, 231);
+  line-height: 1.6;
+  margin: auto;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  width: 95%;
+}
+
+.trace-item__troubleshoot-info--header {
+  font-weight: bold;
+  margin-top: -10px;
+  padding-top: 10px;
+}
+
+.trace-item__troubleshoot-info p {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
 }

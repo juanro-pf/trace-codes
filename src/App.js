@@ -18,14 +18,28 @@ export const App = () => {
 
   const [file, setFile] = useState(null);
   const [xmlFile, setXmlFile] = useState(null);
+  const [activeRequest, setActiveRequest] = useState(null);
 
   useEffect(() => {
     if(file) loadFile();
   }, [file]);
 
   const onFileChange = event => {
-    setFile(event.target.files[0]);
+    setActiveRequest(null);
+    try {
+      if(event.target.files[0].type === 'text/xml'){
+        setFile(event.target.files[0]);
+      } else {
+        alert('Not an xml file');
+      }
+    } catch (error) {
+      alert('Not an xml file');
+    }
   };
+
+  // const handleClick = traceCode => {
+  //   console.log(traceCode);
+  // };
 
   const showTraceInfo = () => {
     if (!xmlFile) return <h1>No trace loaded.</h1>
@@ -81,7 +95,8 @@ export const App = () => {
           apigee_code,
           target_code,
           content
-        }} />);
+        }}  activeRequest={activeRequest} setActiveRequest={setActiveRequest} />);
+        // }} onClickTraceItem={handleClick} />);
       }
       return requestsList.reverse();
     }
@@ -90,7 +105,7 @@ export const App = () => {
   return (
     <div className= 'app'>
       <label className='app__input' style={ xmlFile === 'pending' ? { display: 'none' } : {} }>
-        <input type="file" onChange={onFileChange} />
+        <input type="file" onChange={onFileChange} accept='.xml'/>
         <i className='fa fa-file' aria-hidden="true"></i>
         {
           xmlFile ? ' Load new trace' : ' Load trace'
